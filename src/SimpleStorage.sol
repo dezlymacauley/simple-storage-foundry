@@ -14,34 +14,32 @@ such as retaining the original copyright notice and disclaimer.
 pragma solidity ^0.8.18;
 
 // NOTE: You can also have Solidity versions in a range
-// pragma solidity >=0.8.18 <0.9.0;   
-
+// pragma solidity >=0.8.18 <0.9.0;
 
 // The name of the contract is called SimpleStorage
 // Everything inside the curly braces is the contract
 contract SimpleStorage {
-
     // the variable is called myFavoriteNumber,
     // and the variable type is a uint256
-    // uint256 means unsigned integer 
+    // uint256 means unsigned integer
     // That means that it is a whole number that can only be positive
-    // 256 means 256 bits. 
-    // That is the size of the number that the integer can hold 
-    uint256 myFavoriteNumber;
+    // 256 means 256 bits.
+    // That is the size of the number that the integer can hold
+uint256 myFavoriteNumber;
 
     // "Person" is a struct
     // Think of this as creating a custom variable type
     // Every variable that is created from the struct variable type,
     // must follow this template
     struct Person {
-        uint256 favoriteNumber;
+                        uint256 favoriteNumber;
         string name;
     }
 
     //-------------------------------------------------------------------------
 
     // NOTE: How to create a variable that follows the struct Person template
-        
+
     // Person public dezly = Person({favoriteNumber: 7, name: "Dezly"});
 
     //-------------------------------------------------------------------------
@@ -51,7 +49,7 @@ contract SimpleStorage {
     // public means that this variable is publically accessible
     // This is a dynamic array
     Person[] public listOfPeople;
-   
+
     // NOTE: Static arrays
     // Person[3] public listOfPeople;
     // This would be mean a max size of 3 Persons (aka 3 variables)
@@ -63,7 +61,7 @@ contract SimpleStorage {
     // public means that this variable is publically accessible
     mapping(string => uint256) public nameToFavoriteNumber;
 
-//-----------------------------------------------------------------------------
+    //-----------------------------------------------------------------------------
 
     function store(uint256 _favoriteNumber) public {
         myFavoriteNumber = _favoriteNumber;
@@ -74,7 +72,6 @@ contract SimpleStorage {
     }
 
     function addPerson(string memory _name, uint256 _favoriteNumber) public {
-
         // This will add a new person and their favourite number to the array
         listOfPeople.push(Person(_favoriteNumber, _name));
 
@@ -84,6 +81,5 @@ contract SimpleStorage {
         nameToFavoriteNumber[_name] = _favoriteNumber;
     }
 
-//-----------------------------------------------------------------------------
-
+    //-----------------------------------------------------------------------------
 }
